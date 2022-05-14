@@ -8,8 +8,8 @@ function NewBook() {
         <form>
           <input placeholder="Book Title" />
           <input placeholder="Book Author" />
+          <button type="button">Add book</button>
         </form>
-        <button type="button">Add book</button>
       </div>
     </div>
   );
