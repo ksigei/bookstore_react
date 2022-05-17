@@ -1,5 +1,8 @@
 # Math magicians
-
+The Bookstore is a CMS build with react and Redux. It is used to
+- Display a list of books.
+- Add a book.
+- Remove a selected book.
 ## Built With
 
 - React.js
