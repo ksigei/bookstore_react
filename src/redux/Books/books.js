@@ -1,5 +1,5 @@
-const ADD = 'ADD';
-const REMOVE = 'REMOVE';
+const ADD = 'bookstore/Books/ADD';
+const REMOVE = 'bookstore/Books/REMOVE';
 
 export const AddAction = (data) => ({ type: ADD, payLoad: data });
 
