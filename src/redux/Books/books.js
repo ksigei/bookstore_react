@@ -1,17 +1,36 @@
-const ADD = 'bookstore/Books/ADD';
-const REMOVE = 'bookstore/Books/REMOVE';
+const ADD = 'ADD';
+// const SHOW_BOOKS = 'SHOW_BOOKS';
+const REMOVE = 'REMOVE';
 
-export const AddAction = (data) => ({ type: ADD, payLoad: data });
+const myBooks = {
+  books: [
+    { id: Date(), title: 'Living In the light', author: 'Shakti' },
+    { id: Date(), title: 'Blossoms', author: 'Joseph' },
+    { id: Date(), title: 'Kigogo', author: 'Asumpta' },
+  ],
+};
 
-export const RemoveAction = (id) => ({ type: REMOVE, payLoad: id });
+export const addBook = (book) => ({
+  type: ADD,
+  book,
+});
 
-export default function reducer(state = [], action) {
+export const removeBook = (book) => ({
+  type: REMOVE,
+  book,
+});
+const bookReducer = (state = myBooks, action) => {
   switch (action.type) {
     case ADD:
-      return state.push(action.payLoad);
+      return {
+        books: [...state.books, action.book],
+      };
     case REMOVE:
-      return state.filter((book) => book.id !== action.id);
+      return {
+        books: [...state.books.filter((book) => book.id !== action.book.id)],
+      };
     default:
       return state;
   }
-}
+};
+export default bookReducer;

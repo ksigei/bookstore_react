@@ -1,20 +1,24 @@
+import { checkPropTypes } from 'prop-types';
 import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-function Book() {
+const Book = ({ book }) => {
+  // const dispatch = useDispatch();
+  const { title, author } = book;
+  // const deleteBook = (book) => {
+  //   dispatch(removeBook(book));
+  // };
   return (
-    <div>
-      <div className="container">
-        <h3>Title: Title</h3>
-        <h3>Author: Author</h3>
-        <p>
-          The Bookstore is a website similar to the &quote;Awesome Books&quote;
-          website built in the previous module. You will create an MVP version
-          of it that allows you to:
-        </p>
-        <button type="button">Remove book</button>
-      </div>
+    <div className="book">
+      <h1>{title}</h1>
+      <h2>{author}</h2>
     </div>
   );
-}
+};
+
+Book.propTypes = {
+  book: checkPropTypes.isRequired,
+};
 
 export default Book;

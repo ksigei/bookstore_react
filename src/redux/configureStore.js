@@ -1,13 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import reducer from './Books/books';
-import Category from './Categories/categories';
+import { combineReducers, legacy_createStore as createStore } from 'redux';
+import bookReducer from './Books/books';
+import categoryReducer from './Categories/categories';
 
 const rootReducer = combineReducers({
-  reducer,
-  Category,
+  books: bookReducer,
+  categories: categoryReducer,
 });
 
-const store = configureStore(rootReducer);
+/* eslint-disable */
+const store = createStore(rootReducer,
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;
