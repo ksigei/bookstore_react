@@ -1,12 +1,11 @@
 const ADD = 'ADD';
-// const SHOW_BOOKS = 'SHOW_BOOKS';
 const REMOVE = 'REMOVE';
 
 const myBooks = {
   books: [
-    { id: Date(), title: 'Living In the light', author: 'Shakti' },
-    { id: Date(), title: 'Blossoms', author: 'Joseph' },
-    { id: Date(), title: 'Kigogo', author: 'Asumpta' },
+    { id: 1, title: 'Living In the light', author: 'Shakti' },
+    { id: 2, title: 'Blossoms', author: 'Joseph' },
+    { id: 3, title: 'Kigogo', author: 'Asumpta' },
   ],
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useDispatch } from 'react-redux';
 
 function NewBook() {
   return (
@@ -6,8 +7,8 @@ function NewBook() {
       <div className="container">
         <h3>ADD NEW BOOK</h3>
         <form>
-          <input placeholder="Book Title" />
-          <input placeholder="Book Author" />
+          <input type="text" name="title" placeholder="Book Title" />
+          <input type="text" name="author" placeholder="Book Author" />
           <button type="button">Add book</button>
         </form>
       </div>

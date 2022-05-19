@@ -7,7 +7,6 @@ function BookList() {
   return (
     <div>
       <Book />
-      <Book />
       <NewBook />
     </div>
   );
