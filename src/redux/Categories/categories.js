@@ -5,13 +5,13 @@ export const CheckStatus = () => ({
 });
 
 const categories = {
-  categories: [],
+  categories: ['Under construction'],
 };
 
 const categoryReducer = (state = categories, action) => {
   switch (action.type) {
     case CHECK:
-      return 'Under construction';
+      return 'dddd';
     default: return state;
   }
 };

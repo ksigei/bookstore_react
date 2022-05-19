@@ -1,11 +1,13 @@
+import { generate } from 'randomized-string';
+
 const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
 const myBooks = {
   books: [
-    { id: 1, title: 'Living In the light', author: 'Shakti' },
-    { id: 2, title: 'Blossoms', author: 'Joseph' },
-    { id: 3, title: 'Kigogo', author: 'Asumpta' },
+    { id: generate(), title: 'Living In the light', author: 'Shakti' },
+    { id: generate(), title: 'Blossoms', author: 'Joseph' },
+    { id: generate(), title: 'Kigogo', author: 'Asumpta' },
   ],
 };
 
