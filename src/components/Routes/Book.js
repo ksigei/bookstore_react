@@ -1,20 +1,37 @@
-import React from 'react';
+import { checkPropTypes } from 'prop-types';
+import { React, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeBook } from '../../redux/Books/books';
 
-function Book() {
-  return (
-    <div>
-      <div className="container">
-        <h3>Title: Title</h3>
-        <h3>Author: Author</h3>
-        <p>
-          The Bookstore is a website similar to the &quote;Awesome Books&quote;
-          website built in the previous module. You will create an MVP version
-          of it that allows you to:
-        </p>
-        <button type="button">Remove book</button>
-      </div>
+const Book = () => {
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
+  const [currBooks, setCurrBooks] = useState(books);
+  useEffect(() => {
+    setCurrBooks([...books]);
+  }, [books]);
+
+  const deleteBook = (book) => {
+    dispatch(removeBook(book));
+  };
+  return currBooks.map((book) => (
+    <div key={book.id} className="book">
+      <h1>
+        Title:
+        {book.title}
+      </h1>
+      <h2>
+        Author:
+        {book.author}
+      </h2>
+      <button type="button" onClick={() => deleteBook(book)}>
+        Remove book
+      </button>
     </div>
-  );
-}
-
+  ));
+};
+Book.propTypes = {
+  title: checkPropTypes.isRequired,
+  author: checkPropTypes.isRequired,
+};
 export default Book;

@@ -1,16 +1,18 @@
-import { Routes, Route } from 'react-router-dom';
-import Header from './modules/Header';
-import BookList from './modules/Routes/BookList';
-import Categories from './modules/Routes/Categories';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import BookList from './components/Routes/BookList';
+import Categories from './components/Routes/Categories';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<BookList />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" index element={<BookList />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

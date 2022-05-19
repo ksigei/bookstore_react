@@ -1,17 +1,37 @@
-const ADD = 'bookstore/Books/ADD';
-const REMOVE = 'bookstore/Books/REMOVE';
+import { generate } from 'randomized-string';
 
-export const AddAction = (data) => ({ type: ADD, payLoad: data });
+const ADD = 'ADD';
+const REMOVE = 'REMOVE';
 
-export const RemoveAction = (id) => ({ type: REMOVE, payLoad: id });
+const myBooks = {
+  books: [
+    { id: generate(), title: 'Living In the light', author: 'Shakti' },
+    { id: generate(), title: 'Blossoms', author: 'Joseph' },
+    { id: generate(), title: 'Kigogo', author: 'Asumpta' },
+  ],
+};
 
-export default function reducer(state = [], action) {
+export const addBook = (book) => ({
+  type: ADD,
+  book,
+});
+
+export const removeBook = (book) => ({
+  type: REMOVE,
+  book,
+});
+const bookReducer = (state = myBooks, action) => {
   switch (action.type) {
     case ADD:
-      return state.push(action.payLoad);
+      return {
+        books: [...state.books, action.book],
+      };
     case REMOVE:
-      return state.filter((book) => book.id !== action.id);
+      return {
+        books: [...state.books.filter((book) => book.id !== action.book.id)],
+      };
     default:
       return state;
   }
-}
+};
+export default bookReducer;
