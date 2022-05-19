@@ -11,7 +11,7 @@ const categories = {
 const categoryReducer = (state = categories, action) => {
   switch (action.type) {
     case CHECK:
-      return 'dddd';
+      return categories;
     default: return state;
   }
 };
