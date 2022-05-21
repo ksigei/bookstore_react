@@ -23,7 +23,7 @@ const NewBook = () => {
   };
 
   return (
-    <div className="container">
+    <div className="d_flex_c container bookForm">
       <h2>NEW BOOK</h2>
       <form className="d_flex_r" onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Title" required />

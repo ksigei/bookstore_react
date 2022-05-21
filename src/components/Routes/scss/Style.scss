@@ -8,13 +8,13 @@
   p,
   h3 {
     list-style: none;
-    color: #5a5a8f;
+    color: #1e51dc;
   }
 
   button {
-    width: 20vw;
+    width: 10vw;
     height: 5vh;
-    background-color: #5369b3;
+    background-color: #1e51dc;
     color: #fff;
     border: none;
     border-radius: 2px;
@@ -42,6 +42,35 @@
   gap: 15px;
 }
 
+.g20 {
+  gap: 20px;
+}
+
+.g10_vw {
+  gap: 10vw;
+}
+
 .border_none {
   border: none;
+}
+
+.book-container {
+  margin: 0 0 0 2vw;
+}
+
+.bookForm {
+  align-items: center;
+
+  input {
+    width: 20vw;
+    height: 5vh;
+  }
+
+  button {
+    height: 6vh;
+  }
+}
+
+.progress_updates {
+  align-items: center;
 }
