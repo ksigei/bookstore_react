@@ -1,70 +1,38 @@
-import { React, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { generate } from 'randomized-string';
-import { addBook } from '../../redux/Books/books';
+import { useDispatch } from 'react-redux';
+import { postBook } from '../../redux/Books/books';
+import './scss/Style.scss';
 
-function NewBook() {
+const NewBook = () => {
   const dispatch = useDispatch();
-  const AddBook = (book) => {
-    dispatch(addBook(book));
-  };
-  // let newID = generate();
-  // function newID() {
-  //   location.reload(generate())
 
-  //   return generate()
-  // }
-  // const newID = location.reload(generate());
-  const inputState = {
-    id: '',
-    title: '',
-    author: '',
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { title, author, category } = e.target.elements;
+    const newBook = {
+      item_id: generate(),
+      title: title.value,
+      author: author.value,
+      category: category.value,
+    };
+    dispatch(postBook(newBook));
+    title.value = '';
+    author.value = '';
+    category.value = '';
   };
-
-  const [state, setState] = useState(inputState);
-  const onchange = (e) => {
-    setState((state) => ({
-      ...state,
-      id: generate(),
-      [e.target.name]: e.target.value,
-    }));
-  };
-  // const submitForm = (event) => {
-  //   event.preventDefault();
-  //   // document.querySelector('form').reset();
-  //   const updatedState = {title: state.title, author: state.author, id: generate(),
-  //   }
-  //   return updatedState
-  // }
-  // const updatedState = {title: state.title, author: state.author, id: generate(),
-  // }
 
   return (
-    <div>
-      <div className="container">
-        <h3>ADD NEEEEEEW BOOK</h3>
-        <form>
-          <input
-            type="text"
-            value={state.title}
-            onChange={onchange}
-            name="title"
-            placeholder="Book Title"
-          />
-          <input
-            type="text"
-            value={state.author}
-            onChange={onchange}
-            name="author"
-            placeholder="Book Author"
-          />
-          <button type="button" onClick={() => AddBook(state)}>
-            Add book
-          </button>
-        </form>
-      </div>
+    <div className="container">
+      <h2>NEW BOOK</h2>
+      <form className="d_flex_r" onSubmit={handleSubmit}>
+        <input type="text" name="title" placeholder="Title" required />
+        <input type="text" name="author" placeholder="Author" required />
+        <input type="text" name="category" placeholder="Category" required />
+        <button type="submit">Add</button>
+      </form>
     </div>
   );
-}
+};
 
 export default NewBook;

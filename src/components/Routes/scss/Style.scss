@@ -20,3 +20,28 @@
     border-radius: 2px;
   }
 }
+
+.d_flex_c {
+  display: flex;
+  flex-direction: column;
+}
+
+.d_flex_r {
+  display: flex;
+}
+
+.g8 {
+  gap: 8px;
+}
+
+.g10 {
+  gap: 10px;
+}
+
+.g15 {
+  gap: 15px;
+}
+
+.border_none {
+  border: none;
+}
