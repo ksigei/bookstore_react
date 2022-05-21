@@ -16,7 +16,7 @@ const Book = (props) => {
   };
 
   return (
-    <div className="book-container">
+    <div className="book-container d_flex_r g10_vw">
       <div className="book-details">
         <h3>{category}</h3>
         <h2>{title}</h2>
@@ -27,9 +27,9 @@ const Book = (props) => {
           <button type="button">Edit</button>
         </div>
       </div>
-      <div className="card-progress">
+      <div className="card-progress d_flex_r g10_vw">
         <Progress />
-        <div className="current-position">
+        <div className="d_flex_c progress_updates">
           <h2>CURRENT CHAPTER</h2>
           <h3>Chapter 1: &quot;Intuition&quot;</h3>
           <button type="button">UPDATE PROGRESS</button>
